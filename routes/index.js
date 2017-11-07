@@ -6,7 +6,7 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get('/', (req, res) => {
+router.get('/test', (req, res) => {
   res.send('WELCOME');
 });
 
