@@ -10,19 +10,17 @@
       <img src="https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg"><br>
       <b>Owen/Maxwell</b><br>
       100 followers
-    </div>
-    <div class="col-md-9">
         {% if showForm %}
-          <form action="/tweets" method="POST">
+          <form action="/tweets" method="POST" id="tweet_form">
             <label for="name_field">Name:</label>
-            <input name="name" value= "{{name}}"" type="text" id="name_field" />
-
+            <input name="name" value= "{{name}}" type="text" id="name_field" />
             <label for="text_field">Text:</label>
             <input name="text" type="text" id="text_field" style="width: 350px;" />
-
             <input type="submit" value="Submit" />
           </form>
         {% endif %}
+    </div>
+    <div class="col-md-9">
       <ul>
       <!-- display tweets here -->
       {% for tweet in tweets %}
@@ -31,7 +29,7 @@
             <a href="/users/{{tweet.name}}">{{tweet.name}}</a>
           </h3>
           <h4 class="tweet-content">{{tweet.content}}</h4>
-          <img class='thumbnail' src="DOG.jpg">
+          <img class='thumbnail' src='DOG.jpg'>
         </li>
       {% endfor %}
       </ul>

@@ -78,3 +78,10 @@ li {
   width: 74%;
 }
 
+#tweet_form {
+  float: left;
+}
+
+#tweet_form input {
+  display: block;
+}
