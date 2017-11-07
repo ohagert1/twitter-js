@@ -6,11 +6,8 @@ const data = [];
 
 const tweetBank = {
 
-  add: function(name, content, id) {
-    if(!id && data.length > 0) {
-      id = data[data.length-1].id;
-    }
-    data.push({id: id, name: name, content: content});
+  add: function(name, content) {
+    data.push({id: data.length, name: name, content: content});
   },
 
   list: function() {
@@ -41,7 +38,7 @@ const getFakeTweet = function() {
 };
 
 for (let i = 0; i < 10; i++) {
-  module.exports.add(getFakeName(), getFakeTweet(), i);
+  module.exports.add(getFakeName(), getFakeTweet());
 }
 
 

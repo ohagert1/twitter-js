@@ -12,7 +12,9 @@ const locals = {
 };
 
 router.use((req, res, next) => {
-  console.log(req.method + ' ' + req.path);
+  res.on('finish', () => {
+    console.log(req.method, req.path, res.statusCode);
+  });
   next();
 });
 
@@ -25,11 +27,11 @@ router.get('/', (req, res) => {
   res.render( 'index', { tweets: tweets });
 });
 
-router.get('/users/:firstname%20:lastname', (req, res) => {
-  let name = req.params.firstname + ' ' + req.params.lastname;
+router.get('/users/:name', (req, res) => {
+  let name = req.params.name;
   let tweets = tweetBank.find({name: name});
   // console.log('test!',tweets);
-  res.render('index', {tweets: tweets, showForm: true, name: name});
+  res.render('index', {tweets: tweets, showForm: true, name: req.params.name});
 });
 
 router.get('/tweets/:id', (req, res) => {
