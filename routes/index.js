@@ -21,7 +21,7 @@ router.use(express.static('public'));
 // });
 
 router.get('/', (req, res) => {
-  let tweet = tweetBank.list();
+  let tweets = tweetBank.list();
   res.render( 'index', { tweets: tweets });
 });
 
